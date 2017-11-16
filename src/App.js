@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Container from './Container';
 import Header from './Header';
-import './styles/App.scss';
+import './styles/App.css';
 
 export default class App extends Component {
   render() {
