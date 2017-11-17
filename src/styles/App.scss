@@ -1,9 +1,9 @@
-@import 'variables';
+@import 'variables.scss';
 
 .App {
   box-sizing: border-box;
+  color: $main-color-dark;
   font-family: $main-font;
   margin: auto;
-  padding: 2rem;
   text-align: center;
 }
