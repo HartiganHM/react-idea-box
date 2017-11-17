@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './styles/Header.scss';
+import './styles/Header.css';
 
 export default class Header extends Component {
     constructor() {
@@ -11,12 +11,12 @@ export default class Header extends Component {
     }
     render() {
         return (
-            <div>
-                <h1>React Idea Box</h1>
-                <form>
-                    <input type="text" value="" placeholder="Body"/>
-                    <input type="textarea" value="" placeholder="Body"/>
-                    <button>Submit</button>
+            <div className="Header">
+                <h1 className="page-header"><span className="accent-color">ireact</span>box</h1>
+                <form className="submit-form">
+                    <input className="submit-input" type="text" value="" placeholder="Title"/>
+                    <textarea className="submit-input" type="textarea" value="" placeholder="Body"/>
+                    <button className="submit-input submit-button" >Save</button>
                 </form>
             </div>
         )
