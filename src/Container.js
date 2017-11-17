@@ -1,14 +1,12 @@
 import React, { Component } from 'react';
-import Search from './Search';
 import Card from './Card';
-import './styles/Card.scss';
+import './styles/Container.css';
 
 export default class Container extends Component {
     render () {
         return (
-            <div>
-                <h2>Put some stuff hurrrrrr</h2>
-                <Search />
+            <div className="Container">
+                <input className="submit-input" type="text" value="" placeholder="Search"/>
                 <Card />
             </div>
         )
