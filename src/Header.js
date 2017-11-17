@@ -10,6 +10,8 @@ export default class Header extends Component {
         }
 
         this.handleInputChange = this.handleInputChange.bind(this);
+        this.clearState = this.clearState.bind(this);
+        this.saveData = this.saveData.bind(this);
     }
 
     handleInputChange(event) {
@@ -19,6 +21,7 @@ export default class Header extends Component {
             this.setState({
                 body: value
             })
+
         } else {
             this.setState({
                 title: value
@@ -26,22 +29,47 @@ export default class Header extends Component {
         }
     }
 
+    clearState() {
+        this.setState({
+            title:'',
+            body:''
+        })
+    }
+
+    saveData(event) {
+        event.preventDefault();
+        console.log(this.state);
+        localStorage.setItem(
+                Date.now(),
+                JSON.stringify(
+                    {
+                        title: this.state.title,
+                        body: this.state.body,
+                        quality: 'swill',
+                        id: Date.now()
+                    })
+        )
+        this.clearState();
+    }
+
     render() {
         return (
             <div className="Header">
                 <h1 className="page-header"><span className="accent-color">ireact</span>box</h1>
-                <form className="submit-form">
+                <form
+                    className="submit-form"
+                    onChange={this.handleInputChange}
+                    onSubmit={this.saveData}>
                     <input
                         className="submit-input"
                         type="text" value={this.state.title}
-                        placeholder="Title"
-                        onChange={this.handleInputChange}/>
+                        placeholder="Title"/>
                     <textarea
                         className="submit-input" type="textarea"
                         value={this.state.body}
-                        placeholder="Body"
-                        onChange={this.handleInputChange}/>
-                    <button className="submit-input submit-button" >Save</button>
+                        placeholder="Body"/>
+                    <button
+                        className="submit-input submit-button">Save</button>
                 </form>
             </div>
         )
