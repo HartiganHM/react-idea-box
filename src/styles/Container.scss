@@ -1,0 +1,15 @@
+@import 'variables.scss';
+
+.Container {
+    display: flex;
+    flex-direction: column;
+    padding: 2rem 20rem;
+
+    .submit-input {
+        border: 0.1rem solid $border-color;
+        font-size: 1.6rem;
+        margin: 1rem 0;
+        padding: 0.5rem;
+        resize: none;
+    }
+}
