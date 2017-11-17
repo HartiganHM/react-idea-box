@@ -31,8 +31,16 @@ export default class Header extends Component {
             <div className="Header">
                 <h1 className="page-header"><span className="accent-color">ireact</span>box</h1>
                 <form className="submit-form">
-                    <input className="submit-input" type="text" value={this.state.title} placeholder="Title" onChange={this.handleInputChange}/>
-                    <textarea className="submit-input" type="textarea" value={this.state.body} placeholder="Body" onChange={this.handleInputChange}/>
+                    <input
+                        className="submit-input"
+                        type="text" value={this.state.title}
+                        placeholder="Title"
+                        onChange={this.handleInputChange}/>
+                    <textarea
+                        className="submit-input" type="textarea"
+                        value={this.state.body}
+                        placeholder="Body"
+                        onChange={this.handleInputChange}/>
                     <button className="submit-input submit-button" >Save</button>
                 </form>
             </div>
