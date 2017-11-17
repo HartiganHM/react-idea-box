@@ -1,3 +1,5 @@
+@import 'variables.scss';
+
 body {
   margin: 0;
   padding: 0;
@@ -7,4 +9,12 @@ body {
 html {
   font-size: 62.5%;
   height: 100%;
+}
+
+input, textarea {
+  outline: none;
+
+  &::placeholder {
+    color: $main-color-light;
+  }
 }

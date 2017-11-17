@@ -5,17 +5,17 @@ export default class Card extends Component {
     render () {
         return (
             <div className="Card">
-                <div>
-                    <span>Title</span>
-                    <img className="card-button" src={require("./images/delete.svg")} alt="delete idea button"/>
+                <div className="card-top">
+                    <span className="card-title">Example Idea 1</span>
+                    <div className="card-button delete-button"></div>
                 </div>
 
-                <span>Body</span>
+                <span className="card-body">Tiramisu carrot cake fruitcake gingerbread bear claw powder icing tootsie rool ice cream.</span>
 
-                <div>
-                    <img className="card-button" src={require("./images/upvote.svg")} alt="upvote idea button"/>
-                    <img className="card-button" src={require("./images/downvote.svg")} alt="downvote idea button"/>
-                    <span>quality: <span>normal</span></span>
+                <div className="card-bottom">
+                    <div className="card-button up-button"></div>
+                    <div className="card-button down-button"></div>
+                    <span className="quality">quality: <span className="card-quality">swill</span></span>
                 </div>
             </div>
         )

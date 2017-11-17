@@ -1,7 +1,72 @@
-.Card {
-    width: 20rem;
-}
+@import 'variables.scss';
 
-.card-button {
-    width: 1.5rem;
+.Card {
+    border-bottom: 1px solid $border-color;
+    display: flex;
+    flex-direction: column;
+    padding: 2.5rem 0;
+
+    .card-button {
+        height: 2.5rem;
+        width: 2.5rem;
+    }
+
+    .card-top {
+        font-family: $accent-font;
+        font-size: 2.4rem;
+        justify-content: space-between;
+
+        .delete-button {
+            background-image: url('../images/delete.svg');
+
+            &:hover {
+                background-image: url('../images/delete-hover.svg');
+            }
+        }
+    }
+
+    .card-top, .card-bottom {
+        align-items: flex-start;
+        display: flex;
+    }
+
+    .card-body {
+        align-self: flex-start;
+        color: $main-color-light;
+        font-size: 1.8rem;
+        margin: 2.5rem 0;
+    }
+
+    .card-bottom {
+        align-items: center;
+        font-size: 1.8rem;
+
+        .quality {
+            font-family: $accent-font;
+        }
+
+        .card-quality {
+            font-family: $main-font;
+        }
+
+        .up-button, .down-button {
+            margin-right: 1.5rem;
+        }
+
+        .up-button {
+            background-image: url('../images/upvote.svg');
+
+            &:hover {
+                background-image: url('../images/upvote-hover.svg');
+            }
+        }
+
+        .down-button {
+            background-image: url('../images/downvote.svg');
+
+            &:hover {
+                background-image: url('../images/downvote-hover.svg');
+            }
+        }
+    }
 }
