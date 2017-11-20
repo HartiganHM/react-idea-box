@@ -44,7 +44,7 @@ export default class Header extends Component {
                     {
                         title: this.state.title,
                         body: this.state.body,
-                        quality: 'swill',
+                        quality: 0,
                         id: Date.now()
                     })
         )
