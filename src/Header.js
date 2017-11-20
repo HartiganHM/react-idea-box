@@ -38,7 +38,6 @@ export default class Header extends Component {
 
     saveData(event) {
         event.preventDefault();
-        console.log(this.state);
         localStorage.setItem(
                 Date.now(),
                 JSON.stringify(
