@@ -23,18 +23,26 @@ export default class App extends Component {
     })
   }
 
-  componentDidMount() {
-
+  updateCardQuality(card, direction) {
+    if (direction === 'up' && card.quality < 2) {
+      card.quality + 1
+    } else if (direction === 'down' && card.quality > 0) {
+      card.quality - 1;
+    }
   }
+
+  // componentDidMount() {
+
+  // }
 
   render() {
     return (
       <div className="App">
         <Header newCard={this.newCard}/>
-        <Container cards={this.state.cards}/>
+        <Container
+          cards={this.state.cards}
+          updateCardQuality={this.updateCardQuality}/>
       </div>
     );
-
-    return null;
   }
 }
