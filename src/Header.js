@@ -48,6 +48,7 @@ export default class Header extends Component {
                         id: Date.now()
                     })
         )
+        this.props.newCard();
         this.clearState();
     }
 
