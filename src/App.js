@@ -23,6 +23,10 @@ export default class App extends Component {
     })
   }
 
+  componentDidMount() {
+
+  }
+
   render() {
     return (
       <div className="App">
@@ -30,5 +34,7 @@ export default class App extends Component {
         <Container cards={this.state.cards}/>
       </div>
     );
+
+    return null;
   }
 }
