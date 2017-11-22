@@ -6,7 +6,7 @@ export default class Card extends Component {
         super();
         this.qualityArray = [ 'swill', 'plausible', 'genius'];
         this.state = {};
-        this.handleClick = this.handleClick.bind(this);
+        this.qualityClick = this.qualityClick.bind(this);
         this.deleteClick = this.deleteClick.bind(this);
     }
 
@@ -14,7 +14,7 @@ export default class Card extends Component {
         this.props.removeCard(this.props.id);
     }
 
-    handleClick(event) {
+    qualityClick(event) {
         if(event.target.className.includes('up') && this.props.quality < 2) {
             this.props.updateCardQuality('up', this.props.id);
 
@@ -29,7 +29,7 @@ export default class Card extends Component {
             <div
                 className="Card"
                 id={id}
-                onClick={this.handleClick}>
+                onClick={this.qualityClick}>
                 <div className="card-top">
                     <span className="card-title">{title}</span>
                     <div
