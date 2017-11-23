@@ -5,37 +5,21 @@ export default class Card extends Component {
     constructor() {
         super();
         this.qualityArray = [ 'swill', 'plausible', 'genius'];
-        this.state = {
-            index: 0,
-            quality: 'swill'
-        };
-        this.handleClick = this.handleClick.bind(this);
+        this.state = {};
+        this.qualityClick = this.qualityClick.bind(this);
+        this.deleteClick = this.deleteClick.bind(this);
     }
 
-    handleClick(event) {
-        let indexVal = this.state.index;
-        let newIndex;
+    deleteClick() {
+        this.props.removeCard(this.props.id);
+    }
 
-        if(event.target.className.includes('delete')) {
-            document.getElementById(this.props.id).remove();
-            localStorage.removeItem(JSON.stringify(this.props.id));
-        }
+    qualityClick(event) {
+        if(event.target.className.includes('up') && this.props.quality < 2) {
+            this.props.updateCardQuality('up', this.props.id);
 
-        if(event.target.className.includes('up') && this.state.index <= 2) {
-            newIndex = indexVal + 1
-            this.setState({
-                index: newIndex,
-                quality: this.qualityArray[newIndex]
-            })
-            console.log(this.state);
-
-        } else if (event.target.className.includes('down') && this.state.index >= 0) {
-            newIndex = indexVal - 1
-            this.setState({
-                index: newIndex,
-                quality: this.qualityArray[newIndex]
-            })
-            console.log(this.state);
+        } else if (event.target.className.includes('down') && this.props.quality > 0) {
+            this.props.updateCardQuality('down', this.props.id)
         }
     }
 
@@ -45,10 +29,12 @@ export default class Card extends Component {
             <div
                 className="Card"
                 id={id}
-                onClick={this.handleClick}>
+                onClick={this.qualityClick}>
                 <div className="card-top">
                     <span className="card-title">{title}</span>
-                    <div className="card-button delete-button"></div>
+                    <div
+                        className="card-button delete-button"
+                        onClick={this.deleteClick}></div>
                 </div>
 
                 <span className="card-body">{body}</span>
@@ -56,7 +42,7 @@ export default class Card extends Component {
                 <div className="card-bottom">
                     <div className="card-button up-button"></div>
                     <div className="card-button down-button"></div>
-                    <span className="quality">quality: <span className="card-quality">{this.state.quality}</span></span>
+                    <span className="quality">quality: <span className="card-quality">{this.qualityArray[quality]}</span></span>
                 </div>
             </div>
         )

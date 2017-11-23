@@ -38,18 +38,20 @@ export default class Header extends Component {
 
     saveData(event) {
         event.preventDefault();
-        localStorage.setItem(
-                Date.now(),
-                JSON.stringify(
-                    {
-                        title: this.state.title,
-                        body: this.state.body,
-                        quality: 'swill',
-                        id: Date.now()
-                    })
-        )
-        this.props.newCard();
-        this.clearState();
+        if (this.state.title && this.state.body) {
+            localStorage.setItem(
+                    Date.now(),
+                    JSON.stringify(
+                        {
+                            title: this.state.title,
+                            body: this.state.body,
+                            quality: 0,
+                            id: Date.now()
+                        })
+            )
+            this.props.newCard();
+            this.clearState();
+        }
     }
 
     render() {
